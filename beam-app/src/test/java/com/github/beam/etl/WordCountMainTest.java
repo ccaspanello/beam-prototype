@@ -18,9 +18,9 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by ccaspanello on 4/12/18.
  */
-public class BeamEtlMainTest {
+public class WordCountMainTest {
 
-  private static final Logger LOG = LoggerFactory.getLogger( BeamEtlMainTest.class );
+  private static final Logger LOG = LoggerFactory.getLogger( WordCountMainTest.class );
 
   @Test
   public void endToEndTest() throws Exception {

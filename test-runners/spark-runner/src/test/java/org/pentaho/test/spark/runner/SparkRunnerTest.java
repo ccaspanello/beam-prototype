@@ -23,8 +23,15 @@
  */
 package org.pentaho.test.spark.runner;
 
+import com.google.gson.Gson;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
+import org.pentaho.beam.app.TransformationMain;
 import org.pentaho.beam.app.WordCountMain;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by ccaspanello on 4/13/18.
@@ -35,5 +42,23 @@ public class SparkRunnerTest {
   public void test(){
     String output = System.getProperty( "buildDirectory" )+"/test/spark/counts";
     WordCountMain.main(new String[]{"--runner=SparkRunner", "--inputFile=pom.xml", "--output="+output});
+  }
+
+  @Test
+  public void testBasic() throws Exception {
+    File buildDirectory = new File( System.getProperty( "buildDirectory" ) );
+    File ktr = new File( buildDirectory.getParentFile().getParentFile(), "tests/basic.ktr" );
+    File input = new File( buildDirectory, "tests/movies.csv" );
+    File output = new File( buildDirectory + "/spark-output/basic" );
+
+    FileUtils.deleteQuietly( output.getParentFile() );
+
+    Map<String, String> parameters = new HashMap<>();
+    parameters.put("input", input.getAbsolutePath());
+    parameters.put("output", output.getAbsolutePath());
+
+    Gson gson = new Gson();
+    String sParameters = gson.toJson(parameters);
+    TransformationMain.main( new String[] { "--runner=SparkRunner","--transformationFile=" + ktr, "--parameters="+ sParameters } );
   }
 }

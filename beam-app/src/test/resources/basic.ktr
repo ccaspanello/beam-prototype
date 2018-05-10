@@ -1,0 +1,26 @@
+{
+  "name": "Basic Transformation",
+  "steps": [
+    {
+      "type": "org.pentaho.beam.app.transformation.step.csvinput.CsvInputMeta",
+      "step": {
+        "path": "${input}",
+        "name": "CSV Input"
+      }
+    },
+    {
+      "type": "org.pentaho.beam.app.transformation.step.csvoutput.CsvOutputMeta",
+      "step": {
+        "path": "${output}",
+        "name": "CSV Output"
+      }
+    }
+  ],
+  "hops": [
+    {
+      "incoming": "CSV Input",
+      "outgoing": "CSV Output",
+      "hopType": "DEFAULT"
+    }
+  ]
+}

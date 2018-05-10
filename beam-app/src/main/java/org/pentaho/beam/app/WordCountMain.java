@@ -1,5 +1,6 @@
 package org.pentaho.beam.app;
 
+import org.apache.beam.sdk.options.PipelineOptions;
 import org.pentaho.beam.app.wordcount.CountWords;
 import org.pentaho.beam.app.wordcount.FormatAsTextFn;
 import org.pentaho.beam.app.wordcount.WordCountOptions;

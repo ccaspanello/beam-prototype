@@ -123,6 +123,19 @@ SOFTWARE.
   </build>
 
   <dependencies>
+
+    <dependency>
+      <groupId>org.jgrapht</groupId>
+      <artifactId>jgrapht-core</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.reflections</groupId>
+      <artifactId>reflections</artifactId>
+      <version>0.9.11</version>
+    </dependency>
+
+
     <!-- Adds a dependency on the Beam SDK. -->
     <dependency>
       <groupId>org.apache.beam</groupId>
@@ -216,12 +229,18 @@ SOFTWARE.
       <version>${slf4j.version}</version>
     </dependency>
 
+    <!--<dependency>-->
+      <!--<groupId>org.slf4j</groupId>-->
+      <!--<artifactId>slf4j-jdk14</artifactId>-->
+      <!--<version>${slf4j.version}</version>-->
+      <!--&lt;!&ndash; When loaded at runtime this will wire up slf4j to the JUL backend &ndash;&gt;-->
+      <!--<scope>runtime</scope>-->
+    <!--</dependency>-->
+
     <dependency>
       <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-jdk14</artifactId>
-      <version>${slf4j.version}</version>
-      <!-- When loaded at runtime this will wire up slf4j to the JUL backend -->
-      <scope>runtime</scope>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.25</version>
     </dependency>
 
     <!-- Hamcrest and JUnit are required dependencies of PAssert,
