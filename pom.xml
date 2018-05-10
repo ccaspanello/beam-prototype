@@ -27,7 +27,7 @@ SOFTWARE.
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.ccaspanello</groupId>
+  <groupId>org.pentaho.beam</groupId>
   <artifactId>beam-prototype</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -59,8 +59,9 @@ SOFTWARE.
   </properties>
 
   <modules>
-    <module>beam-etl</module>
+    <module>beam-app</module>
     <module>test-runners</module>
+    <module>engine</module>
   </modules>
 
   <repositories>
