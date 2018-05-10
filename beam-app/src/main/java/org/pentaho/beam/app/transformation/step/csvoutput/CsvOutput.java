@@ -32,7 +32,7 @@ public class CsvOutput extends BaseStep<CsvOutputMeta> {
 
     PCollection<Row> data = getIncoming().stream().findFirst().get().getData();
     data.apply( ParDo.of(new CsvOutputFn(rowType)) )
-    .apply( TextIO.write().to(path) );
+    .apply( TextIO.write().to(path).withoutSharding() );
 
   }
 }

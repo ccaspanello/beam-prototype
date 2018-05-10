@@ -25,13 +25,17 @@ package org.pentaho.test.direct.runner;
 
 import com.google.gson.Gson;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.pentaho.beam.app.TransformationMain;
 import org.pentaho.beam.app.WordCountMain;
 
 import java.io.File;
+import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by ccaspanello on 4/10/18.
@@ -46,10 +50,11 @@ public class DirectRunnerTest {
 
   @Test
   public void testBasic() throws Exception {
-
     File buildDirectory = new File( System.getProperty( "buildDirectory" ) );
-    File ktr = new File( buildDirectory.getParentFile().getParentFile(), "tests/basic.ktr" );
-    File input = new File( buildDirectory, "tests/movies.csv" );
+    File testsDir = new File(buildDirectory.getParentFile().getParentFile(),"tests");
+
+    File ktr = new File( testsDir, "basic.ktr" );
+    File input = new File( testsDir, "movies.csv" );
     File output = new File( buildDirectory + "/direct-output/basic" );
 
     FileUtils.deleteQuietly( output.getParentFile() );
@@ -61,5 +66,8 @@ public class DirectRunnerTest {
     Gson gson = new Gson();
     String sParameters = gson.toJson( parameters );
     TransformationMain.main( new String[] { "--transformationFile=" + ktr, "--parameters=" + sParameters } );
+
+    int count = IOUtils.readLines( new FileReader( output ) ).size();
+    assertEquals(40, count);
   }
 }
