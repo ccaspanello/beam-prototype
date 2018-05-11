@@ -2,14 +2,14 @@
   "name": "Basic Transformation",
   "steps": [
     {
-      "type": "org.pentaho.beam.app.transformation.step.csvinput.CsvInputMeta",
+      "type": "org.pentaho.plugin.csv.input.CsvInputMeta",
       "step": {
         "path": "${input}",
         "name": "CSV Input"
       }
     },
     {
-      "type": "org.pentaho.beam.app.transformation.step.csvoutput.CsvOutputMeta",
+      "type": "org.pentaho.plugin.csv.output.CsvOutputMeta",
       "step": {
         "path": "${output}",
         "name": "CSV Output"

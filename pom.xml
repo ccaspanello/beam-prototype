@@ -59,9 +59,10 @@ SOFTWARE.
   </properties>
 
   <modules>
+    <module>beam-app-api</module>
     <module>beam-app</module>
     <module>test-runners</module>
-    <module>engine</module>
+    <module>plugins</module>
   </modules>
 
   <repositories>

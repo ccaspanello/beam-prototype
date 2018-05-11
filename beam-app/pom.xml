@@ -125,16 +125,10 @@ SOFTWARE.
   <dependencies>
 
     <dependency>
-      <groupId>org.jgrapht</groupId>
-      <artifactId>jgrapht-core</artifactId>
-      <version>1.0.0</version>
+      <groupId>org.pentaho.beam</groupId>
+      <artifactId>beam-app-api</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
-    <dependency>
-      <groupId>org.reflections</groupId>
-      <artifactId>reflections</artifactId>
-      <version>0.9.11</version>
-    </dependency>
-
 
     <!-- Adds a dependency on the Beam SDK. -->
     <dependency>
@@ -282,6 +276,11 @@ SOFTWARE.
       <artifactId>mockito-core</artifactId>
       <version>${mockito.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.pentaho.beam</groupId>
+      <artifactId>beam-app-api</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
